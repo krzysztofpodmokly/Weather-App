@@ -11,9 +11,6 @@ function Weather(city, conditions, temperature, humidity, wind, pressure) {
     this.pressure = pressure;
 }
 
-/*================================
-        EVENT LISTENERS
-=================================*/
 // Submit data after button click
 search = document.querySelector('.search-btn');
 search.addEventListener('click', requestWeatherData);
@@ -25,16 +22,15 @@ document.addEventListener('keypress', function (event) {
     }
 });
 
+//Assigning event listener to 'C' and 'F' letters to switch between temperature units
 fahrenheit = document.querySelector('.fahrenheit');
 celsius = document.querySelector('.celsius');
-
-//fahrenheit.addEventListener('click', calcTemp);
-//celsius.addEventListener('click', calcTemp);
 
 [fahrenheit, celsius].forEach(function (el) {
     return el.addEventListener('click', calcTemp);
 })
 
+//Function which calculates give temperature to different units
 function calcTemp(event) {
     var fahrenheit, celsius, temp, value;
     fahrenheit = document.querySelector('.fahrenheit');
@@ -56,6 +52,7 @@ function calcTemp(event) {
     }
 }
 
+//Function which get HTTP requests and processes. Result of this operation is JSON object downloaded from https://openweathermap.org/api
 function requestWeatherData() {
     var http, key, url, method, cityInput, cityInputMedia, content, loader, error;
 
@@ -74,64 +71,47 @@ function requestWeatherData() {
         return (el.offsetParent === null)
     }
 
-    
-
-    
-    
-    
-
-
-    //    cityInput = cityInputMedia; // Both inputs share same value for media queries
-
     http = new XMLHttpRequest();
     key = 'f7ae93273991702a76175c327cf35188';
-//    url = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityInput + '&units=metric&appid=' + key;
     method = 'GET';
     
     var cityValue;
     
+    //function which distinguish from which input data must be read
+    function generateAPIKey(input) {
+        if (input.trim().length === 0) {
+            toggleVisibility('.toggle-display', 'hidden');
+            loader.style.display = 'none';
+            error.style.display = 'block';
+            error.textContent = 'Please enter City Name!';
+        } else {
+            error.style.display = 'none';
+            
+            url = 'http://api.openweathermap.org/data/2.5/weather?q=' + input + '&units=metric&appid=' + key;
+            cityValue = input;
+        }
+        var data = {url: url, cityValue: cityValue};
+        
+        return data;
+    }
+    
+    var data;
     if (!isHidden(document.getElementById('city'))) {
-        if (cityInput.trim().length === 0) {
-            toggleVisibility('.toggle-display', 'hidden');
-            loader.style.display = 'none';
-            error.style.display = 'block';
-            error.textContent = 'Please enter City Name!';
-            
-            
-            
-        } else {
-            error.style.display = 'none';
-            
-            url = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityInput + '&units=metric&appid=' + key;
-            cityValue = cityInput;
-        }
+        data = generateAPIKey(cityInput);
+    } else if (!isHidden(document.getElementById('city-small'))) {
+        data = generateAPIKey(cityInputMedia);
     }
     
-    if (!isHidden(document.getElementById('city-small'))) {
-        if (cityInputMedia.trim().length === 0) {
-            toggleVisibility('.toggle-display', 'hidden');
-            loader.style.display = 'none';
-            error.style.display = 'block';
-            error.textContent = 'Please enter City Name!';
-            
-            
-            
-        } else {
-            error.style.display = 'none';
-            
-            url = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityInputMedia + '&units=metric&appid=' + key;
-            cityValue = cityInputMedia;
-        }
-    }
+    var cityValue = data.cityValue;
     
+    //Opening connection
+    http.open(method, data.url);
     
-    
-    http.open(method, url);
+    //Callback is called from the user interface. Readystatechange is fired every time the readyState property of request changes.
     http.onreadystatechange = function () {
         if (http.readyState === 4 && http.status === 200) {
             var data = JSON.parse(http.responseText);
             var weatherObj = fetchData(data);
-
             var weatherData = new Weather(
                 cityValue,
                 weatherObj.desc,
@@ -144,7 +124,6 @@ function requestWeatherData() {
             loader.style.display = 'none';
             content.style.display = 'flex';
 
-            //icons function
             showWeatherIcon();
 
         } else if (http.readyState === 4) {
@@ -152,17 +131,20 @@ function requestWeatherData() {
         }
     }
 
+    //Sending request to the server
     http.send();
 
     document.querySelector('#city').value = '';
     document.querySelector('#city').focus();
 }
 
+//Function which switches icons according to weather in chosen city
 function showWeatherIcon() {
     var weatherConditions, regExp, pattern, result, weatherIcon, icon;
     weatherConditions = document.querySelector('.weather__conditions').textContent;
     weatherIcon = document.getElementById('weather-icon');
 
+    //Function created to verify whether given DOM.textContent has the words of specific pattern
     var checkPattern = function (pattern) {
         return weatherConditions.includes(pattern);
     }
@@ -181,6 +163,7 @@ function showWeatherIcon() {
     weatherIcon.src = icon;
 }
 
+//Function which switches between properties 'visible' & 'hidden'. Function is triggered once user hits the button
 function toggleVisibility(className, condition) {
     var toggleItems = document.querySelectorAll(className);
     // Transforming node list to array in order to loop through it
@@ -191,6 +174,7 @@ function toggleVisibility(className, condition) {
     });
 }
 
+//Function gets data from given object in this case it is JSON object from API
 function fetchData(obj) {
     var data = {
         desc: obj.weather[0].description,
@@ -203,6 +187,7 @@ function fetchData(obj) {
     return data
 }
 
+//Function is responsible for displaying content in the UI
 function weatherUI(weatherData) {
     var temp, humidity, wind, pressure, city, conditions, cityFirstLetter, cityLength;
 
@@ -264,4 +249,5 @@ function init() {
 
 }
 
+//Seeting initial values
 init();
