@@ -31,6 +31,7 @@
 html {
   font-family: 'Open Sans', sans-serif;
   height: 100vh;
+  overflow-x: hidden;
   overflow-y: hidden; }
 
 body {
