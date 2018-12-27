@@ -1,0 +1,414 @@
+/*=================================================================
+						DEFAULT VALUES:
+						
+						Font family         : Open Sans
+						Greenish Blue 		: #34c6d3 	(Button, Icons, Links, Lines & Backgrounds)
+						Steel Gray 			: #41464b 	(Headings)
+						Blue Bayoux 		: #64767b 	(Paragraphs)
+						White 				: #fff 		(Text with black backgorunds)
+						Black 				: #000
+=================================================================*/
+
+/*===============================================================
+                        IMPORTS
+=================================================================*/
+@import "_variables.scss";
+@import "_mixins.scss";
+@import "_media.scss";
+
+/*===============================================================
+                        GENERAL RULES
+=================================================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+body {
+    background-image: url(img-1.jpg);
+    background-size: cover;
+    background-position: 0% 50%;
+}
+
+/*===============================================================
+                            HEADER
+=================================================================*/
+
+
+
+.container {
+    &__header {
+        @include display-flex(row, center, center);
+        height: 250px;
+        background-color: rgba(map-get($colors, backgrounds), 0.4);
+        text-align: center;
+
+        h1 {
+            @include text-format(2px);
+            color: map-get($colors, secondary);
+            font-size: 45px;
+
+            @include media-width-range(520px, 1680px) {
+                font-size: 35px;
+
+                .break {
+                    display: none;
+                }
+            }
+
+            @include media-width-range(300px, 519px) {
+                @include text-format(0px);
+                font-size: 25px;
+
+                .break {
+                    display: none;
+                }
+            }
+
+            @include media-width-range(0px, 299px) {
+                @include text-format(0px);
+                font-size: 20px;
+
+                .break {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+/*===============================================================
+                            INPUT
+=================================================================*/
+
+.container {
+    &__input {
+        //BEM Block element modifier
+        @include display-flex(row, center, center);
+        height: 80px;
+        box-shadow: 0 0 5px 5px rgba(map-get($colors, backgrounds), 0.30) inset;
+        background-color: rgba(map-get($colors, backgrounds), 0.45);
+
+        #city-small {
+            display: none;
+
+            @include media-width-range(300px, 519px) {
+                display: flex;
+                margin-bottom: 10px;
+
+                &::placeholder {
+                    @include text-format(2px);
+                    padding-left: 5px;
+                }
+            }
+
+            @include media-width-range(0px, 299px) {
+                display: flex;
+                margin-bottom: 10px;
+                width: 170px;
+
+                &::placeholder {
+                    @include text-format(2px);
+                    padding-left: 5px;
+                }
+            }
+        }
+
+        label {
+            color: map-get($colors, secondary);
+            @include text-format(2px);
+
+            @include media-width-range(520px, 590px) {
+                @include text-format(0px);
+            }
+
+            @include media-width-range(150px, 519px) {
+                display: none;
+            }
+
+        }
+
+        input {
+            margin: 0 30px;
+            width: 250px;
+            height: $height;
+            border: none;
+            border-radius: 3px;
+            font-family: inherit;
+
+            &:focus {
+                outline-color: grayscale(map-get($colors, items));
+                transition: 0.2s linear;
+            }
+
+            @include media-width-range(520px, 590px) {
+                margin: 0 5px 0 10px;
+            }
+
+            @include media-width-range(150px, 519px) {
+                display: none;
+            }
+
+        }
+
+        button {
+            @include text-format(1px);
+            @include display-flex(row, center, center);
+            border: none;
+            border-radius: 3px;
+            background-color: rgba(map-get($colors, backgrounds), 0.8);
+            height: $height;
+            width: 180px;
+            color: map-get($colors, secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+
+            .btn-icon {
+                transition: 0.3s ease;
+                margin-left: 10px;
+                font-size: 17px;
+            }
+
+            &:hover {
+                background-color: map-get($colors, items);
+
+                .btn-icon {
+                    margin-left: 20px;
+                    color: $sun-icon;
+                }
+            }
+
+            &:focus {
+                outline: 0;
+            }
+
+            @include media-width-range(520px, 590px) {
+                @include text-format(0px);
+                width: 150px;
+            }
+
+            @include media-width-range(300px, 519px) {
+                width: 250px;
+            }
+
+            @include media-width-range(0px, 299px) {
+                width: 170px;
+            }
+
+        }
+
+        @include media-width-range(150px, 519px) {
+            @include display-flex(column, center, center);
+        }
+
+    }
+
+    /*===============================================================
+                            DISPLAY WEATHER
+=================================================================*/
+
+    .container {
+        &__display {
+            @include display-flex(row, center, center);
+            color: $bottom-font-color;
+            background-color: rgba(255, 255, 255, 0.3);
+            position: relative;
+            top: 40px;
+            transition: all 0.3s;
+
+
+                        .content-field {
+                            margin: 0 5px;
+                        }
+
+            .info {
+                //                width: $dimension;
+                @include display-flex(column, center, flex-end);
+                transition: 0.3s linear;
+
+                div {
+                    font-size: 25px;
+                }
+
+                .info__city {
+                    font-size: 40px;
+                }
+
+                @include media-width-range(0px, 299px) {
+                    @include display-flex(column, center, center);
+                }
+            }
+
+            .weather {
+                @include display-flex(column, center, center);
+                width: 25vw;
+
+                &__icon {
+                    @include display-flex(row, center, center);
+                    padding: 10px;
+
+                    img {
+                        width: $dimension / 2;
+                        height: $dimension / 2;
+                    }
+
+                }
+
+                &__conditions {
+                    @include text-format(0px);
+                    font-size: 15px;
+                    color: map-get($colors, secondary);
+                    background-color: rgba(map-get($colors, items), 0.6);
+                    border: 1px solid rgba(map-get($colors, items), 1);
+                    border-radius: 3px;
+                    padding: 4px;
+                    text-align: center;
+
+                    @include media-width-range(300px, 519px) {
+                        width: 200px;
+                    }
+                    
+                    @include media-width-range(0px, 299px) {
+                        font-size: 14px;
+                        width: 150px;
+                    }
+
+                }
+
+                &__content {
+                    @include display-flex(row, center, center);
+                    width: $dimension + 50px;
+
+                    .weather__temp {
+                        font-size: 55px;
+
+                        @include media-width-range(520px, 590px) {
+                            font-size: 40px;
+                        }
+
+                    }
+
+                    button {
+                        background: none;
+                        border: none;
+                        font-size: 25px;
+                        color: rgba(map-get($colors, backgrounds), 0.6);
+
+                        &.active {
+                            color: darken(map-get($colors, backgrounds), 25%);
+                        }
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+
+            }
+
+            .indicators {
+                width: $dimension + 10px;
+                transition: 0.3s linear;
+                border-radius: 3px;
+                border: 1px solid rgba(0, 0, 0, 0.6);
+
+                div {
+                    font-size: 20px;
+                    padding: 10px;
+                    background-color: rgba(0, 0, 0, 0.2);
+
+                    @include media-width-range(520px, 590px) {
+                        font-size: 15px;
+                    }
+
+                    @include media-width-range(300px, 519px) {
+                        background-color: rgba(0, 0, 0, 0.5);
+                        color: map-get($colors, secondary);
+                    }
+
+                    @include media-width-range(0px, 299px) {
+                        font-size: 14px;
+                        background-color: rgba(0, 0, 0, 0.5);
+                        color: map-get($colors, secondary);
+                    }
+                }
+
+                @include media-width-range(520px, 590px) {
+                    width: $dimension - 30px;
+                }
+
+                @include media-width-range(0px, 299px) {
+                    width: $dimension - 50px;
+                }
+
+            }
+
+
+            @include media-width-range(520px, 1680px) {
+                &:hover {
+                    .info {
+                        margin-right: 10px;
+                    }
+
+                    .indicators {
+                        margin-left: 10px;
+                    }
+                }
+            }
+
+            @include media-width-range(150px, 519px) {
+                @include display-flex(column, center, center);
+                background-color: rgba(0, 0, 0, 0);
+
+                &:hover {
+                    .info {
+                        margin-bottom: 3px;
+                    }
+
+                    .indicators {
+                        margin-top: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*===============================================================
+                            LOADER & ERROR
+=================================================================*/
+
+.content {
+    &__loading {
+        @include display-flex(column, center, center);
+        width: 100%;
+        margin-top: 100px;
+
+        #loader {
+            display: none;
+            font-size: 64px;
+            color: map-get($colors, items);
+        }
+
+        #error {
+            display: none;
+            @include text-format(1px);
+            background-color: darken(rgba(map-get($colors, backgrounds), 0.5), 100%);
+            padding: 15px;
+            border-radius: 3px;
+            color: map-get($colors, secondary);
+        }
+    }
+}

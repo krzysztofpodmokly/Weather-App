@@ -1,0 +1,32 @@
+
+@mixin media-width-range($min-width, $max-width) {
+    @media (min-width: $min-width) and (max-width: $max-width) {
+        @content;
+    }
+}
+
+/* Large Devices (Desktops & Laptops) */
+@media (min-width: 1200px) {
+    
+}
+
+/* Medium Devices (Medium Desktops & Landscape Tablets) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    
+}
+
+/* Small Devices (Portrait Tablets & Small Desktops) */
+@media (min-width: 768px) and (max-width: 991px) {
+    
+}
+
+/* Extra Small Devices (Landscape Phones & Portrait Tablets) */
+@media (max-width:767px) {}
+
+/* Extra Small Devices (Portrait Phones & Smaller Devices) */
+@media (max-width:480px) {}
+
+/* Extra Small Devices (Portrait Phones & Smaller Devices) */
+@media (max-width:320px) {}
+
+

@@ -1,0 +1,426 @@
+/*=================================================================
+						DEFAULT VALUES:
+						
+						Font family         : Open Sans
+						Greenish Blue 		: #34c6d3 	(Button, Icons, Links, Lines & Backgrounds)
+						Steel Gray 			: #41464b 	(Headings)
+						Blue Bayoux 		: #64767b 	(Paragraphs)
+						White 				: #fff 		(Text with black backgorunds)
+						Black 				: #000
+=================================================================*/
+/*===============================================================
+                        IMPORTS
+=================================================================*/
+/*===============================================================
+                        SASS Deafults
+=================================================================*/
+/* Large Devices (Desktops & Laptops) */
+/* Medium Devices (Medium Desktops & Landscape Tablets) */
+/* Small Devices (Portrait Tablets & Small Desktops) */
+/* Extra Small Devices (Landscape Phones & Portrait Tablets) */
+/* Extra Small Devices (Portrait Phones & Smaller Devices) */
+/* Extra Small Devices (Portrait Phones & Smaller Devices) */
+/*===============================================================
+                        GENERAL RULES
+=================================================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+  overflow-y: hidden; }
+
+body {
+  background-image: url(img-1.jpg);
+  background-size: cover;
+  background-position: 0% 50%; }
+
+/*===============================================================
+                            HEADER
+=================================================================*/
+.container__header {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  background-color: rgba(132, 132, 132, 0.4);
+  text-align: center; }
+  .container__header h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    font-size: 45px; }
+    @media (min-width: 520px) and (max-width: 1680px) {
+      .container__header h1 {
+        font-size: 35px; }
+        .container__header h1 .break {
+          display: none; } }
+    @media (min-width: 300px) and (max-width: 519px) {
+      .container__header h1 {
+        text-transform: uppercase;
+        letter-spacing: 0px;
+        font-size: 25px; }
+        .container__header h1 .break {
+          display: none; } }
+    @media (min-width: 0px) and (max-width: 299px) {
+      .container__header h1 {
+        text-transform: uppercase;
+        letter-spacing: 0px;
+        font-size: 20px; }
+        .container__header h1 .break {
+          display: block; } }
+
+/*===============================================================
+                            INPUT
+=================================================================*/
+.container {
+    /*===============================================================
+                            DISPLAY WEATHER
+=================================================================*/ }
+  .container__input {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    box-shadow: 0 0 5px 5px rgba(132, 132, 132, 0.3) inset;
+    background-color: rgba(132, 132, 132, 0.45); }
+    .container__input #city-small {
+      display: none; }
+      @media (min-width: 300px) and (max-width: 519px) {
+        .container__input #city-small {
+          display: flex;
+          margin-bottom: 10px; }
+          .container__input #city-small::placeholder {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding-left: 5px; } }
+      @media (min-width: 0px) and (max-width: 299px) {
+        .container__input #city-small {
+          display: flex;
+          margin-bottom: 10px;
+          width: 170px; }
+          .container__input #city-small::placeholder {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding-left: 5px; } }
+    .container__input label {
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px; }
+      @media (min-width: 520px) and (max-width: 590px) {
+        .container__input label {
+          text-transform: uppercase;
+          letter-spacing: 0px; } }
+      @media (min-width: 150px) and (max-width: 519px) {
+        .container__input label {
+          display: none; } }
+    .container__input input {
+      margin: 0 30px;
+      width: 250px;
+      height: 25px;
+      border: none;
+      border-radius: 3px;
+      font-family: inherit; }
+      .container__input input:focus {
+        outline-color: #626262;
+        transition: 0.2s linear; }
+      @media (min-width: 520px) and (max-width: 590px) {
+        .container__input input {
+          margin: 0 5px 0 10px; } }
+      @media (min-width: 150px) and (max-width: 519px) {
+        .container__input input {
+          display: none; } }
+    .container__input button {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 3px;
+      background-color: rgba(132, 132, 132, 0.8);
+      height: 25px;
+      width: 180px;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s; }
+      .container__input button .btn-icon {
+        transition: 0.3s ease;
+        margin-left: 10px;
+        font-size: 17px; }
+      .container__input button:hover {
+        background-color: #35788e; }
+        .container__input button:hover .btn-icon {
+          margin-left: 20px;
+          color: #ccf3ff; }
+      .container__input button:focus {
+        outline: 0; }
+      @media (min-width: 520px) and (max-width: 590px) {
+        .container__input button {
+          text-transform: uppercase;
+          letter-spacing: 0px;
+          width: 150px; } }
+      @media (min-width: 300px) and (max-width: 519px) {
+        .container__input button {
+          width: 250px; } }
+      @media (min-width: 0px) and (max-width: 299px) {
+        .container__input button {
+          width: 170px; } }
+    @media (min-width: 150px) and (max-width: 519px) {
+      .container__input {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        justify-content: center; } }
+  .container .container__display {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content: center;
+    color: #242c35;
+    background-color: rgba(255, 255, 255, 0.3);
+    position: relative;
+    top: 40px;
+    transition: all 0.3s; }
+    .container .container__display .content-field {
+      margin: 0 5px; }
+    .container .container__display .info {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: flex-end;
+      -moz-box-align: flex-end;
+      -ms-flex-align: flex-end;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+      justify-content: center;
+      transition: 0.3s linear; }
+      .container .container__display .info div {
+        font-size: 25px; }
+      .container .container__display .info .info__city {
+        font-size: 40px; }
+      @media (min-width: 0px) and (max-width: 299px) {
+        .container .container__display .info {
+          display: -webkit-box;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          flex-direction: column;
+          -webkit-box-align: center;
+          -moz-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+          justify-content: center; } }
+    .container .container__display .weather {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      justify-content: center;
+      width: 25vw; }
+      .container .container__display .weather__icon {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        justify-content: center;
+        padding: 10px; }
+        .container .container__display .weather__icon img {
+          width: 100px;
+          height: 100px; }
+      .container .container__display .weather__conditions {
+        text-transform: uppercase;
+        letter-spacing: 0px;
+        font-size: 15px;
+        color: #fff;
+        background-color: rgba(53, 120, 142, 0.6);
+        border: 1px solid #35788e;
+        border-radius: 3px;
+        padding: 4px;
+        text-align: center; }
+        @media (min-width: 300px) and (max-width: 519px) {
+          .container .container__display .weather__conditions {
+            width: 200px; } }
+        @media (min-width: 0px) and (max-width: 299px) {
+          .container .container__display .weather__conditions {
+            font-size: 14px;
+            width: 150px; } }
+      .container .container__display .weather__content {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        justify-content: center;
+        width: 250px; }
+        .container .container__display .weather__content .weather__temp {
+          font-size: 55px; }
+          @media (min-width: 520px) and (max-width: 590px) {
+            .container .container__display .weather__content .weather__temp {
+              font-size: 40px; } }
+        .container .container__display .weather__content button {
+          background: none;
+          border: none;
+          font-size: 25px;
+          color: rgba(132, 132, 132, 0.6); }
+          .container .container__display .weather__content button.active {
+            color: #444444; }
+          .container .container__display .weather__content button:hover {
+            cursor: pointer; }
+          .container .container__display .weather__content button:focus {
+            outline: none; }
+    .container .container__display .indicators {
+      width: 210px;
+      transition: 0.3s linear;
+      border-radius: 3px;
+      border: 1px solid rgba(0, 0, 0, 0.6); }
+      .container .container__display .indicators div {
+        font-size: 20px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.2); }
+        @media (min-width: 520px) and (max-width: 590px) {
+          .container .container__display .indicators div {
+            font-size: 15px; } }
+        @media (min-width: 300px) and (max-width: 519px) {
+          .container .container__display .indicators div {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff; } }
+        @media (min-width: 0px) and (max-width: 299px) {
+          .container .container__display .indicators div {
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff; } }
+      @media (min-width: 520px) and (max-width: 590px) {
+        .container .container__display .indicators {
+          width: 170px; } }
+      @media (min-width: 0px) and (max-width: 299px) {
+        .container .container__display .indicators {
+          width: 150px; } }
+    @media (min-width: 520px) and (max-width: 1680px) {
+      .container .container__display:hover .info {
+        margin-right: 10px; }
+      .container .container__display:hover .indicators {
+        margin-left: 10px; } }
+    @media (min-width: 150px) and (max-width: 519px) {
+      .container .container__display {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0); }
+        .container .container__display:hover .info {
+          margin-bottom: 3px; }
+        .container .container__display:hover .indicators {
+          margin-top: 3px; } }
+
+/*===============================================================
+                            LOADER & ERROR
+=================================================================*/
+.content__loading {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 100px; }
+  .content__loading #loader {
+    display: none;
+    font-size: 64px;
+    color: #35788e; }
+  .content__loading #error {
+    display: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 3px;
+    color: #fff; }
+
+/*# sourceMappingURL=style.css.map */

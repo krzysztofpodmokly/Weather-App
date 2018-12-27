@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+    <!-- LOADER -->
+    <link rel="stylesheet" href="loader/loading.css">
+
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="container__header">
+            <h1>Weather<br class="break"> application</h1>
+        </div>
+
+        <div class="container__input">
+            <label for="city">City name</label>
+            <input type="text" id="city">
+            <input type="text" id="city-small" placeholder="City name">
+            <button type="button" class="search-btn">Show Weather<span class="btn-icon">&#9730;</span></button>
+        </div>
+
+        <div class="container__display">
+
+            <div class="info content-field">
+                <div class="info__city toggle-display"></div>
+                <div class="info__day">Saturday</div>
+                <div class="info__time">10:00 PM</div>
+            </div>
+
+            <div class="weather content-field">
+                <div class="weather__icon toggle-display">
+                    <img id="weather-icon">
+                </div>
+                <div class="weather__conditions toggle-display"></div>
+                <div class="weather__content toggle-display">
+                    <div class="weather__temp initial"></div>
+                    <button class="celsius active">&#8451;</button>
+                    <button class="fahrenheit">&#8457;</button>
+                </div>
+            </div>
+
+            <div class="indicators content-field toggle-display">
+                <div class="indicators__humid initial"></div>
+                <div class="indicators__wind initial"></div>
+                <div class="indicators__pressure initial"></div>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+    <div class="content__loading">
+        <div id="loader" class="ld ld-hourglass ld-spin-fast"></div>
+        <div id="error">Error</div>
+    </div>
+    <!--    <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->
+
+    <script src="custom.js"></script>
+
+</body>
+
+</html>

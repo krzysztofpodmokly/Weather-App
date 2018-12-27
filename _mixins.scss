@@ -1,0 +1,22 @@
+@mixin display-flex($direction, $justify, $align) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    flex-direction: $direction;
+    
+    -webkit-box-align: $align;
+    -moz-box-align: $align;
+    -ms-flex-align: $align;
+    -webkit-align-items: $align;
+    align-items: $align;
+    
+    justify-content: $justify;
+}
+
+@mixin text-format($space) {
+    text-transform: uppercase;
+    letter-spacing: $space;
+}
