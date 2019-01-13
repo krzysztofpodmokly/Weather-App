@@ -1,13 +1,13 @@
----Weather Application---
+# Weather Application
 Application connects with weather API and data related to basic weather indicators is display
 
----General Information---
+# General Information
 Application was created in the convention of mobile-first approach in order to practice JavaScript and SASS.
 
----Running The App---
+# Running The App
 Download all the files and open index.html
 
----Built With---
+# Built With
 * JavaScript
 * HTML
 * CSS
