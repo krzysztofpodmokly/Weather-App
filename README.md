@@ -12,12 +12,13 @@ Application was created in the convention of mobile-first approach in order to p
 # Getting Started
 Application must be cloned to your local system
 
-    `git clone`
+    git clone
 
 After that, open __index.html__ in your browser
 
 # Built With
-    * JavaScript
-    * HTML
-    * CSS
-    * SCSS
+
+* JavaScript
+* HTML
+* CSS
+* SCSS
