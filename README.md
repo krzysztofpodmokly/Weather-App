@@ -7,14 +7,8 @@ Application connects with weather API and data related to basic weather indicato
 API: __https://www.metaweather.com/__
 
 # General Information
-Application was created in the convention of mobile-first approach in order to practice JavaScript and SCSS.
-
-# Getting Started
-Application must be cloned to your local system
-
-    git clone
-
-After that, open __index.html__ in your browser
+Application was created in the convention of desktop-first approach in order to practice JavaScript and SCSS.
+Link to application: http://one-metal.surge.sh/
 
 # Built With
 
@@ -22,3 +16,4 @@ After that, open __index.html__ in your browser
 * HTML
 * CSS
 * SCSS
+* RWD
